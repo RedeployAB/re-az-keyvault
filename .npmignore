@@ -1,0 +1,4 @@
+test
+*.tgz
+.nyc_output
+test*
