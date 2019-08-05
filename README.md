@@ -24,7 +24,7 @@ Small and lightweight module to handle calls against the Azure Key Vault REST AP
 ## Install
 
 ```
-npm install re-az-authentication
+npm install re-az-keyvault
 ```
 
 ## Usage
