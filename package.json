@@ -1,6 +1,6 @@
 {
   "name": "re-az-keyvault",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Make request to the Azure Key Vault REST API.",
   "main": "lib/keyvault.js",
   "scripts": {
@@ -21,13 +21,13 @@
   },
   "homepage": "https://github.com/RedeployAB/re-az-keyvault#readme",
   "dependencies": {
-    "webreq": "^0.4.0"
+    "webreq": "^0.6.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.2.0",
+    "mocha": "^6.2.2",
     "nyc": "^14.1.1",
-    "sinon": "^7.4.0"
+    "sinon": "^7.5.0"
   },
   "engines": {
     "node": ">=8.5.0"
