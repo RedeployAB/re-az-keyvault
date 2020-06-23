@@ -166,6 +166,40 @@ try {
 }
 ```
 
+To get multiple secrets in parallel and resolve it to an object with secret names
+as keys and secrets as values:
+
+```js
+let secrets;
+try {
+  secrets = await getSecrets(['name1', 'name2', 'name3'], { secretsObject: true });
+} catch (error) {
+  console.log(error);
+}
+
+// Example result:
+{
+  name1: "<secret>",
+  name2: "<secret>",
+  name3: "<secret>"
+}
+
+// To get specific versions.
+let secrets;
+try {
+  secrets = await getSecrets(['name1/version', 'name2/version', 'name3/version'], { secretsObject: true });
+} catch (error) {
+  console.log(error);
+}
+
+// Example result:
+{
+  name1: "<secret>",
+  name2: "<secret>",
+  name3: "<secret>"
+}
+```
+xs
 #### `listSecrets()`
 
 To list all secrets:
