@@ -234,6 +234,40 @@ describe('KeyVault', () => {
         });
     });
 
+    it('should fetch all secrets and return them as a key/value pair (object) if secretsObject: true is passed in options', () => {
+
+      let getStub = sinon.stub(webreq, 'get');
+
+      getStub.onCall(0).resolves({ statusCode: 200, body: { id: 'https://kv.keyvaultbaseurl/secrets/secret1/1', value: '1' } });
+      getStub.onCall(1).resolves({ statusCode: 200, body: { id: 'https://kv.keyvaultbaseurl/secrets/secret2/1', value: '2' } });
+      getStub.onCall(2).resolves({ statusCode: 200, body: { id: 'https://kv.keyvaultbaseurl/secrets/secret3/1', value: '3' } });
+
+      return keyvault.getSecrets(['secret1','secret2','secret3'], { secretsObject: true })
+        .then(secrets => {
+          expect(typeof secrets === 'object');
+          expect(secrets['secret1']).to.equal('1');
+          expect(secrets['secret2']).to.equal('2');
+          expect(secrets['secret3']).to.equal('3');
+        });
+    });
+
+    it('should fetch all secrets (with version) and return them as a key/value pair (object) if secretsObject: true is passed in options', () => {
+
+      let getStub = sinon.stub(webreq, 'get');
+
+      getStub.onCall(0).resolves({ statusCode: 200, body: { id: 'https://kv.keyvaultbaseurl/secrets/secret1/1', value: '1' } });
+      getStub.onCall(1).resolves({ statusCode: 200, body: { id: 'https://kv.keyvaultbaseurl/secrets/secret2/1', value: '2' } });
+      getStub.onCall(2).resolves({ statusCode: 200, body: { id: 'https://kv.keyvaultbaseurl/secrets/secret3/1', value: '3' } });
+
+      return keyvault.getSecrets(['secret1/1','secret2/1','secret3/1'], { secretsObject: true })
+        .then(secrets => {
+          expect(typeof secrets === 'object');
+          expect(secrets['secret1']).to.equal('1');
+          expect(secrets['secret2']).to.equal('2');
+          expect(secrets['secret3']).to.equal('3');
+        });
+    });
+
     it('should throw if one ore more secrets could not be fetched', () => {
 
       let getStub = sinon.stub(webreq, 'get');
