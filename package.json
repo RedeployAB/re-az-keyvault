@@ -1,6 +1,6 @@
 {
   "name": "re-az-keyvault",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Make request to the Azure Key Vault REST API.",
   "main": "lib/keyvault.js",
   "scripts": {
@@ -25,9 +25,9 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.2.2",
-    "nyc": "^14.1.1",
-    "sinon": "^7.5.0"
+    "mocha": "^8.0.1",
+    "nyc": "^15.1.0",
+    "sinon": "^9.0.2"
   },
   "engines": {
     "node": ">=8.5.0"
