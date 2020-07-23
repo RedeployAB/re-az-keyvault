@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.3
+
+* Add option to getSecrets() to return an object containing secrets.
+* Updated dev dependencies.
+
 ## v0.1.2
 
 * Updated dev dependencies.
