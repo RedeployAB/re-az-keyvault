@@ -1,6 +1,8 @@
 # re-az-keyvault
 
-Make calls with the Azure Key Vault REST API.
+![Test](https://github.com/RedeployAB/re-az-keyvault/workflows/Test/badge.svg)
+
+> Make calls with the Azure Key Vault REST API.
 
 **Content**
 
